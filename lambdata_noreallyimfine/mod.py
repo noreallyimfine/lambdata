@@ -58,4 +58,7 @@ def more_data(df):
 
     return df
 
-
+def add_list(l, df):
+    cols = [col for col in df.columns]
+    s = pd.Series(l, index=cols)
+    df = df.append(s, ignore_index=True)

@@ -10,8 +10,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="lambdata-noreallyimfine", 
-    version="0.0.11",
+    name="lambdata-noreallyimfine",
+    version="0.0.2",
     author="Avraham Jacobsohn",
     author_email="noreallyimfine@users.noreply.github.com",
     description="Data Science helper functions",
