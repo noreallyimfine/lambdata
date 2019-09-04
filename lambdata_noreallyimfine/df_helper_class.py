@@ -12,6 +12,8 @@ class Helper:
         self.cols = [col for col in df.columns]
 
     def more_rows(self, num):
+        """ Function to generate more rows for DataFrame, by picking a random
+        value from each column """
 
         for i in range(num):
             new_row = []
@@ -25,6 +27,8 @@ class Helper:
         return self.df
 
     def add_list(self, l):
+        """ Function to add a list to a Pandas DataFrame """
+
         s = pd.Series(l, index=self.cols)
         self.df = self.df.append(s, ignore_index=True)
 
@@ -32,8 +36,20 @@ class Helper:
         return self.df
 
     def split_date(self, col):
+        """ Function to split a date into separate components of year, month,
+        and day """
         if self.df[col].dtype != 'datetime64[ns]':
             self.df[col] = pd.to_datetime(self.df[col])
+
         name = self.df[col].name
-        self.df[f'{name}_year'] = self.df[col].date.year
+        self.df[f'{name}_year'] = self.df[col].dt.year
+        self.df[f'{name}_month'] = self.df[col].dt.month
+        self.df[f'{name}_day'] = self.df[col].dt.day
+
+        self.df[f'{name}_month'] = self.df[f'{name}_month'].map({
+            1: 'January', 2: 'February', 3: 'March', 4: 'April', 5: 'May',
+            6: 'June', 7: 'July', 8: 'August', 9: 'September', 10: 'October',
+            11: 'November', 12: 'December'
+            })
+
         return self.df

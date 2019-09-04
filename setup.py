@@ -11,7 +11,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="lambdata-noreallyimfine",
-    version="0.0.2",
+    version="0.0.3",
     author="Avraham Jacobsohn",
     author_email="noreallyimfine@users.noreply.github.com",
     description="Data Science helper functions",
