@@ -19,7 +19,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/noreallyimfine/lambdata",
     packages=setuptools.find_packages(),
-    instal_requires = REQUIRED,
+    install_requires = REQUIRED,
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

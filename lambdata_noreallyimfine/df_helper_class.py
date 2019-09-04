@@ -30,3 +30,10 @@ class Helper:
 
         print("List appended to end of DataFrame!")
         return self.df
+
+    def split_date(self, col):
+        if self.df[col].dtype != 'datetime64[ns]':
+            self.df[col] = pd.to_datetime(self.df[col])
+        name = self.df[col].name
+        self.df[f'{name}_year'] = self.df[col].date.year
+        return self.df
